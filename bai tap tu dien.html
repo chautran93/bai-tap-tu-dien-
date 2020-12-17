@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Tra cứu từ điển Anh-Việt</h2>
+    <form>
+        <input type="text" id="nhapvao" width="100px" />
+        <input type="button" id="dich" onclick="myclick()" value="Tra cứu" />
+        <input type="reset" value="Nhập lại" /><br />
+        <div id="result"></div>
+    </form>
+    <script>
+
+        function myclick() {
+            let english = ["hello", "name", "city", "you", "class"];
+            let tiengviet = ["Xin chào", "Tên", "Thành phố", "Bạn", "Lớp"];
+            let results;
+            let flag = false;
+            results = document.getElementById('nhapvao').value;
+            // console.log (results);
+            english.forEach(function (item, index) {
+                if (results === item) {
+                    let a = "<hr/>";
+                    document.getElementById('result').innerHTML = a + item + "&nbsp" + ":" + "&nbsp" + tiengviet[index];
+                    return flag = true;
+                }
+            })
+            if (!flag) {
+                alert('Không có trong từ điển');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
